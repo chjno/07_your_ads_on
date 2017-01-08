@@ -1,4 +1,4 @@
-var creds = require('./creds.js');
+var creds = {};
 var twit = require('twit');
 var T = new twit(creds);
 var fs = require('fs');
@@ -21,6 +21,19 @@ var webshot = require('webshot');
 //     }
 //   );
 // };
+
+if (process.env.creds){
+  console.log('process.env.creds == true');
+  creds = {
+    consumer_key:         process.env.CK,
+    consumer_secret:      process.env.CS,
+    access_token:         process.env.AT,
+    access_token_secret:  process.env.ATS
+  };
+} else {
+  console.log('process.env.creds == false');
+  creds = require('./creds.js');
+}
 
 var tweet = function(image){
   console.log('tweet: start');
