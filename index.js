@@ -52,6 +52,9 @@ var tweet = function(image){
 
         T.post('statuses/update', params, function (){
           console.log('tweeted');
+          fs.unlink('./bb.png', function (){
+            console.log('deleted bb.png');
+          });
         });
       }
     });
@@ -69,17 +72,17 @@ var shoot = function(){
       // height: 'all'
       height: 1024
     },
-    renderDelay: 15000
+    renderDelay: 20000
   };
 
-  webshot('www.breitbart.com', 'bb.png', options, function(err) {
+  webshot('www.breitbart.com', './bb.png', options, function(err) {
       if (err){
         console.log('error');
         console.log(err);
       } else {
         console.log('shot');
 
-        tweet('bb.png');
+        tweet('./bb.png');
 
         // var y = 0;
         // var index = 0;
@@ -96,5 +99,8 @@ var shoot = function(){
   );
 };
 
+fs.unlink('./bb.png', function (){
+  console.log('deleted bb.png');
+});
 shoot();
 setInterval(shoot, 3600000);
