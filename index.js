@@ -71,8 +71,8 @@ var shoot = function(){
       width: 'all',
       // height: 'all'
       height: 1024
-    },
-    renderDelay: 20000
+    }
+    // renderDelay: 20000
   };
 
   webshot('www.breitbart.com', './bb.png', options, function(err) {
