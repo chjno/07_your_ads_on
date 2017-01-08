@@ -83,4 +83,5 @@ var shoot = function(){
   );
 };
 
+shoot();
 setInterval(shoot, 3600000);
