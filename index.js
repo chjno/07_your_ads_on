@@ -1,6 +1,5 @@
 var creds = {};
 var twit = require('twit');
-var T = new twit(creds);
 var fs = require('fs');
 var webshot = require('webshot');
 // var easyimg = require('easyimage');
@@ -34,6 +33,7 @@ if (process.env.creds){
   console.log('process.env.creds == false');
   creds = require('./creds.js');
 }
+var T = new twit(creds);
 
 var tweet = function(image){
   console.log('tweet: start');
