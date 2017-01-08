@@ -99,8 +99,8 @@ var shoot = function(){
   );
 };
 
-fs.unlink('./bb.png', function (){
-  console.log('deleted bb.png');
-});
+// fs.unlink('./bb.png', function (){
+//   console.log('deleted bb.png');
+// });
 shoot();
 setInterval(shoot, 3600000);
